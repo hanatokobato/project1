@@ -14,3 +14,10 @@ users:
     per_page: 10
   user:
     size: 50
+  show:
+    post:
+      per_page: 10
+post:
+  max_length: 140
+  user_image_size: 50
+  picture_size: 5
