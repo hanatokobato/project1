@@ -1,0 +1,19 @@
+<li id="post-<%= post.id %>">
+  <%= link_to gravatar_for(post.user, size: Settings.post.user_image_size),
+    post.user %>
+  <span class="user"><%= link_to post.user.name, post.user %></span>
+  <span class="title"><%= post.title %></span>
+  <span class="content">
+    <%= post.body %>
+    <%= image_tag post.picture.url if post.picture? %>
+  </span>
+  <span class="timestamp">
+  <%= t ".posted" %>
+  <%= time_ago_in_words post.created_at %>
+  <%= t ".ago" %>.
+  <% if current_user.is_user? post.user %>
+    <%= link_to t(".delete"), post, method: :delete,
+      data: { confirm: t(".you_sure") } %>
+  <% end %>
+  </span>
+</li>

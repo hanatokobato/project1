@@ -5,6 +5,9 @@ en:
       invalid_link: "Invalid activation link"
   application:
     hello: "Hello world!"
+  errors:
+    messages:
+      picture_size: "should be less than 5MB"
   layouts:
     application:
       base_title: "Ruby on Rails Tutorial Sample App"
@@ -41,6 +44,15 @@ en:
     password_reset_expired: "Password reset has expired."
     update:
       reset_success: "Password has been reset."
+  posts:
+    destroy:
+      deleted: "Deleted"
+      failed: "Failed"
+    post:
+      ago: "ago"
+      posted: "Posted"
+      delete: "delete"
+      you_sure: "You sure?"
   sessions:
     new:
       forgot_password: "forgot password"
@@ -56,6 +68,13 @@ en:
     error_messages:
       error: "error"
       the_form_contain: "The form contain"
+    post_form:
+      compose_post: "Compose new post..."
+      enter_title: "Enter title"
+      post: "Post"
+    user_info:
+      post: "post"
+      view_profile: "view my profile"
   static_pages:
     about:
       about: "About"
@@ -79,6 +98,7 @@ en:
       to_get_help: "To get help on this sample app, see the"
     home:
       home: "Home"
+      post_feed: "Post Feed"
       rails_logo: "Rails logo"
       rails_tutorial: "Ruby on Rails Tutorial"
       sample_app: "Sample App"
@@ -110,6 +130,8 @@ en:
       signup: "Signup"
     not_found: "User not found!"
     please_login: "Please log in."
+    show:
+      post: "Post"
     update:
       profile_updated: "Profile updated"
       failed: "Failed!"
