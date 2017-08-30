@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  root "static_pages#show", page: "home"
+  root "static_pages#show", page_type: "home"
 
-  get "static_pages/:page", to: "static_pages#show", as: "static_page"
+  get "static_pages/:page_type", to: "static_pages#show", as: "static_page"
 
   get "/signup", to: "users#new"
   post "/signup", to: "users#create"
@@ -13,4 +13,5 @@ Rails.application.routes.draw do
 
   resources :account_activations, only: :edit
   resources :password_resets, except: %i(index show destroy)
+  resources :posts, only: %i(create destroy)
 end
