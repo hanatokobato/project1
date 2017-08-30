@@ -70,6 +70,7 @@ en:
       the_form_contain: "The form contain"
     post_form:
       compose_post: "Compose new post..."
+      enter_title: "Enter title"
       post: "Post"
     user_info:
       post: "post"
