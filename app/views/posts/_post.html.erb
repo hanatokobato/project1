@@ -8,12 +8,25 @@
     <%= image_tag post.picture.url if post.picture? %>
   </span>
   <span class="timestamp">
-  <%= t ".posted" %>
-  <%= time_ago_in_words post.created_at %>
-  <%= t ".ago" %>.
-  <% if current_user.is_user? post.user %>
-    <%= link_to t(".delete"), post, method: :delete,
-      data: { confirm: t(".you_sure") } %>
-  <% end %>
+    <%= t ".posted" %>
+    <%= time_ago_in_words post.created_at %>
+    <%= t ".ago" %>.
+      <% if logged_in? && current_user.is_user?(post.user) %>
+        <%= link_to t(".delete"), post, method: :delete,
+          data: { confirm: t(".you_sure") } %>
+      <% end %>
   </span>
+  <span class="comment-manager">
+    <%= link_to t(".comments"), post_comments_path(post), remote: true %>
+    <span class="badge" id="post_<%= post.id %>_comment_count">
+      <%= post.comments.size %>
+    </span>
+  </span>
+  <ul class="comments-list" id="post_<%= post.id %>_comments" style="display: none">
+  </ul>
+  <% if logged_in? && (current_user.is_user?(post.user) ||
+      current_user.following?(post.user)) %>
+    <span id="post_<%= post.id %>_comment_form" class="comment-form"
+      style="display: none"></span>
+  <% end %>
 </li>

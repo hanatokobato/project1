@@ -1,10 +1,15 @@
 class StaticPagesController < ApplicationController
   def show
     if valid_page?
-      if logged_in?
-        @post = current_user.posts.build
-        @feed_items = Post.feed(current_user.id).paginate page: params[:page],
-          per_page: Settings.users.show.post.per_page
+      if params[:page_type] == "home"
+        if logged_in?
+          @post = current_user.posts.build
+          @feed_items = Post.feed(current_user.id).paginate page: params[:page],
+            per_page: Settings.post.per_page
+        else
+          @posts = Post.all.paginate page: params[:page],
+            per_page: Settings.post.per_page
+        end
       end
 
       render "#{params[:page_type]}"

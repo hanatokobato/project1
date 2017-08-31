@@ -1,0 +1,38 @@
+<div id="comment_<%= comment.id %>" class="comment">
+  <li>
+    <%= link_to gravatar_for(comment.user,
+      size: Settings.comments.user.picture_size), comment.user %>
+    <span class="user"><%= link_to comment.user.name, comment.user %></span>
+    <span class="content"><%= comment.content %></span>
+    <span class="timestamp">
+      <%= t ".submit_at" %>
+      <%= time_ago_in_words comment.created_at %>
+      <%= t ".ago" %>
+      <% if logged_in? && (current_user.is_user?(comment.user) ||
+        current_user.is_user?(@post.user)) %>
+        <% if comment.commentable_type == "Post" %>
+          <%= link_to "delete", post_comment_path(commentable, comment),
+            method: :delete, remote: true %>
+        <% else %>
+          <%= link_to "delete", comment_comment_path(commentable, comment,
+            post_id: @post.id), method: :delete, remote: true %>
+        <% end %>
+      <% end %>
+    </span>
+    <span class="comment-manager">
+      <%= link_to t(".reply"), comment_comments_path(comment, post_id: @post.id),
+        remote: true %>
+      <span class="badge" id="comment_<%= comment.id %>_comment_count">
+        <%= comment.comments.size %>
+      </span>
+    </span>
+    <ul class="comments-list" id="comment_<%= comment.id %>_comments"
+      style="display: none">
+    </ul>
+    <% if logged_in? && (current_user.is_user?(@post.user) ||
+      current_user.following?(@post.user)) && !current_user.is_user?(comment.user) %>
+      <span id="comment_<%= comment.id %>_comment_form" style="display: none"
+        class="comment-form"></span>
+    <% end %>
+  </li>
+</div>

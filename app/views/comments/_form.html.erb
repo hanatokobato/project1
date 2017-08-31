@@ -1,0 +1,7 @@
+<%= form_for [@commentable, @commentable.comments.build], remote: true do |f| %>
+  <% if commentable_type(@commentable) != "post" %>
+    <%= hidden_field_tag :post_id, @post.id %>
+  <% end %>
+  <%= f.text_area :content, placeholder: t(".enter_comment") %>
+  <%= f.submit t(".submit"), class: "btn btn-comment btn-primary" %>
+<% end %>

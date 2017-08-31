@@ -1,0 +1,6 @@
+$("#<%= commentable_type @commentable %>_<%= @commentable.id %>_comments")
+  .append("<%= escape_javascript(render @comment, commentable: @commentable) %>");
+$("#<%= commentable_type @commentable %>_<%= @commentable.id %>_comment_count")
+  .html("<%= @commentable.comments.size %>");
+$("#<%= commentable_type @commentable %>_<%= @commentable.id %>_comment_form")
+  .find('textarea').val('');

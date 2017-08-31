@@ -1,0 +1,10 @@
+if(<%= @commentable.comments.any? %>){
+  $("#<%= commentable_type @commentable %>_<%= @commentable.id %>_comments")
+    .html("<%= escape_javascript(render @comments, commentable: @commentable) %>");
+}
+$("#<%= commentable_type @commentable %>_<%= @commentable.id %>_comments")
+  .toggle();
+$("#<%= commentable_type @commentable %>_<%= @commentable.id %>_comment_form")
+  .toggle();
+$("#<%= commentable_type @commentable %>_<%= @commentable.id %>_comment_form")
+  .html("<%= escape_javascript(render 'comments/form') %>");
