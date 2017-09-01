@@ -5,6 +5,16 @@ en:
       invalid_link: "Invalid activation link"
   application:
     hello: "Hello world!"
+  comments:
+    can_not_comment: "Can not comment"
+    can_not_delete: "Can not delete comment"
+    comment:
+      ago: "ago."
+      submit_at: "submit at"
+      reply: "reply"
+    form:
+      enter_comment: "enter your comment"
+      submit: "submit"
   errors:
     messages:
       picture_size: "should be less than 5MB"
@@ -45,11 +55,14 @@ en:
     update:
       reset_success: "Password has been reset."
   posts:
+    create:
+      created: "Post created"
     destroy:
       deleted: "Deleted"
       failed: "Failed"
     post:
       ago: "ago"
+      comments: "comments"
       posted: "Posted"
       delete: "delete"
       you_sure: "You sure?"
@@ -72,6 +85,9 @@ en:
       compose_post: "Compose new post..."
       enter_title: "Enter title"
       post: "Post"
+    stats:
+      following: "following"
+      followers: "followers"
     user_info:
       post: "post"
       view_profile: "view my profile"
@@ -118,6 +134,12 @@ en:
       save_change: "Save Changes"
       update_profile: "Update your profile"
     failed: "Failed!"
+    follow:
+      follow: "Follow"
+    followers:
+      followers: "Followers"
+    following:
+      following: "Following"
     form:
       confirm_password: "Confirm your password"
       enter_email: "Enter your email"
@@ -132,6 +154,11 @@ en:
     please_login: "Please log in."
     show:
       post: "Post"
+    show_follow:
+      posts: "Posts:"
+      view_profile: "view my profile"
+    unfollow:
+      unfollow: "Unfollow"
     update:
       profile_updated: "Profile updated"
       failed: "Failed!"

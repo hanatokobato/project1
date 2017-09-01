@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, except: [:new, :create]
   before_action :correct_user, only: [:edit, :update]
-  before_action :load_user, only: [:show, :destroy]
+  before_action :load_user, only: [:show, :destroy, :following, :followers]
   before_action :verify_admin!, only: :destroy
 
   def index
@@ -50,6 +50,18 @@ class UsersController < ApplicationController
       flash[:danger] = t ".can_not_delete"
     end
     redirect_to users_url
+  end
+
+  def following
+    @title = t ".following"
+    @users = @user.following.paginate page: params[:page]
+    render "show_follow"
+  end
+
+  def followers
+    @title = t ".followers"
+    @users = @user.followers.paginate page: params[:page]
+    render "show_follow"
   end
 
   private

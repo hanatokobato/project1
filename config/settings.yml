@@ -12,12 +12,15 @@ user_helper:
 users:
   index:
     per_page: 10
+  show_follow:
+    size: 30
   user:
     size: 50
-  show:
-    post:
-      per_page: 10
 post:
   max_length: 140
-  user_image_size: 50
+  per_page: 10
   picture_size: 5
+  user_image_size: 50
+comments:
+  user:
+    picture_size: 30

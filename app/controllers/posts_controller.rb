@@ -6,7 +6,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.build post_params
 
     if @post.save
-      flash[:success] = t ".Post created"
+      flash[:success] = t ".created"
       redirect_to root_url
     else
       @feed_items = []
